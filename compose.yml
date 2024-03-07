@@ -1,6 +1,13 @@
 version: '3'
 services:
 
+  web2:
+    image: haproxy:latest
+    ports:
+      - 8000:80
+      - 8443:443
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg      
   web:
     image: nginx:latest
     ports:
