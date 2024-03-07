@@ -1,0 +1,26 @@
+version: '3'
+services:
+
+  web:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
+
+  apache1:
+    build: apache  
+    volumes:
+      - ./apache/vhost.conf:/etc/apache2/sites-enabled/vhost.conf
+      - ./html:/html
+  apache2:
+    build: apache  
+    volumes:
+      - ./apache/vhost.conf:/etc/apache2/sites-enabled/vhost.conf
+      - ./html:/html
+  apache3:
+    build: apache  
+    volumes:
+      - ./apache/vhost.conf:/etc/apache2/sites-enabled/vhost.conf
+      - ./html:/html            
